@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const config = require('../config')
 
 const signup = (req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
   const user = new User()
   user.email = req.body.email
   user.password = req.body.password
@@ -13,6 +14,7 @@ const signup = (req, res) => {
 }
 
 const login = (req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
   User.findOne({email: req.body.email}, (err, user) => {
     if (err || !user) return res.status(404).send("User not found")
     if (user.comparePassword(req.body.password)) {
