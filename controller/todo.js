@@ -8,9 +8,19 @@ const getTodo = (req, res) => {
   })
 }
 
+const getOne=(req,res)=>{
+  var one = req.params.title
+  todo.findOne({userid:one},(err,data)=>{
+      if(err) return res.json(err)
+      console.log(one)
+      res.json(data)
+  })
+}
+
 const update=(req,res)=>{
   res.header('Access-Control-Allow-Origin', '*');
-  todo.remove({},(err,data)=>{
+  var one = req.params.title
+  todo.remove({userid:one},(err,data)=>{
   if (err) return err
   console.log(req.body)
   todo.insertMany(req.body).then(function(){
@@ -24,4 +34,5 @@ const update=(req,res)=>{
 module.exports = {
   getTodo,
   update,
+  getOne
 }
