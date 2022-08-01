@@ -10,9 +10,9 @@ const getTodo = (req, res) => {
 
 const getOne=(req,res)=>{
   var one = req.params.title
-  todo.findOne({userid:one},(err,data)=>{
+  todo.find({userid:one},(err,data)=>{
       if(err) return res.json(err)
-      console.log(one)
+      console.log(data)
       res.json(data)
   })
 }
