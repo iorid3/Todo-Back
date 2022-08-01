@@ -18,7 +18,6 @@ mongoose.connect(config.MONGOODB_URL, (err) => {
 //   res.header('Access-Control-Allow-Origin', '*');
 //   next();
 // });
-
 app.use(userRouter)
 app.use(todoRouter)
 
