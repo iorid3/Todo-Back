@@ -12,10 +12,10 @@ mongoose.connect(config.MONGOODB_URL, (err) => {
   if(err) return console.log(err)
   console.log('connected to db successfully')
 })
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   next();
+// });
 
 app.use(userRouter)
 app.use(todoRouter)
